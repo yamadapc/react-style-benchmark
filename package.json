@@ -70,7 +70,7 @@
   "scripts": {
     "codegen": "ts-node --compilerOptions='{\"isolatedModules\":false}' bin/codegen.ts",
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "npm run codegen && node scripts/build.js",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {

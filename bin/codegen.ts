@@ -67,7 +67,7 @@ function generateRandomRule(): StyleRule {
   };
 }
 
-function generateStyleModel(size: number = 10000): StyleModel {
+function generateStyleModel(size: number = 1000): StyleModel {
   const rules = [];
 
   for (let i = 0; i < size; i++) {
@@ -100,11 +100,15 @@ ${attributesStr}
 function renderComponentsUsage(styleModel: StyleModel) {
   const jsxCalls = styleModel.rules
     .flatMap((rule) => {
-      return [`<${rule.componentName} />`];
+      return [
+        `<${rule.componentName} />`,
+        `<${rule.componentName} />`,
+        `<${rule.componentName} />`,
+      ];
     })
     .join("\n");
 
-  const usage = `
+  return `
 export const MainComponent = () => {
     return (
         <div className="MainComponent">
@@ -113,7 +117,6 @@ export const MainComponent = () => {
     );
 };
 `;
-  return usage;
 }
 
 function generateStyledComponents(styleModel: StyleModel): string {
@@ -147,7 +150,7 @@ import { styled } from '@compiled/react';
   const usage = renderComponentsUsage(styleModel);
 
   const fileContents = result + componentsStr + usage;
-  fs.writeFileSync('./src/compiled.tsx', fileContents);
+  fs.writeFileSync("./src/compiled.tsx", fileContents);
 }
 
 function generateCSSModule(styleModel: StyleModel) {
@@ -165,7 +168,11 @@ ${renderAttributes(rule)}
 
   const jsxCalls = styleModel.rules
     .flatMap((rule) => {
-      return [`<div className={styles.${rule.name}} />`];
+      return [
+        `<div className={styles.${rule.name}} />`,
+        `<div className={styles.${rule.name}} />`,
+        `<div className={styles.${rule.name}} />`,
+      ];
     })
     .join("\n");
 
