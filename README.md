@@ -1,5 +1,6 @@
 # react-style-benchmark
 
+## What is this?
 This repository sets-up a couple of CSS-in-JS solutions and compiled CSS to
 run performance tests against them.
 
@@ -11,6 +12,31 @@ A component is generated and exported to render each of the rules 3 times.
 `bin/generate-reports.sh` then loads the app in lighthouse with each of the
 configurations and outputs the "total blocking time" metric, which is what we
 care about.
+
+## Why?
+In my experience, CSS-in-JS is several times slower than very old standard
+styling solutions at scale. A solution with good performance **can** be built,
+but would require a LOT of engineering effort. Standard editing, linting,
+pre-processing tools will all have to be built from scratch to support an EDSL
+for CSS in JavaScript that has no overhead.
+
+1000 rules is not unthinkable, neither is a DOM tree size of 3000
+elements for a large app.
+
+Other than this, results speak for themselves, CSS in JS performs 2-4x worse on
+production builds and up to 7x worse during development.
+
+Ultimately everything that can be done with these EDSLs can be done with regular
+CSS and at most some extra preprocessors (SCSS for example, modules, postcss) and
+CSS variables.
+
+Development experience with them is considerably worse because:
+* It's harder to support hot-reloading of JavaScript than CSS, thus some large
+  apps could have instant hot-reloading of styles, but don't due to their usage
+  of CSS-in-JS
+* They are really slow in development builds (3-7x as shown in "development
+  build" runs)
+* Bad editor support
 
 ## Overview
 
