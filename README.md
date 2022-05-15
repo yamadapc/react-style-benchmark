@@ -30,5 +30,8 @@ The main metric we are interested in is **blocking time**, we want to measure
 the overhead of this styling solution.
 
 Dynamic styles are not considered yet. Re-renders were also not measured yet.
+Results might differ if the page had been SSR-ed with style-sheet extraction.
+Since all "modes" load all dependencies for all solutions, overall TTI is
+unimportant.
 
 Each page rendered 3000 components, with 1000 unique (+/-) rules.
