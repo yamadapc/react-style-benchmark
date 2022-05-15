@@ -13,6 +13,10 @@ A component is generated and exported to render each of the rules 3 times.
 configurations and outputs the "total blocking time" metric, which is what we
 care about.
 
+**Tests were only ran once, which is not the best**, however the performance
+difference between the solutions is so huge the results are still indicative of
+the issue I'm trying to surface.
+
 ## Why?
 In my experience, CSS-in-JS is several times slower than very old standard
 styling solutions at scale. A solution with good performance **can** be built,
