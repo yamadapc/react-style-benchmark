@@ -13,6 +13,7 @@ configurations and outputs the "total blocking time" metric, which is what we
 care about.
 
 ## Overview
+
 I ran this on a Macbook Pro M1 Pro with 8x CPU slowdown.
 
 These are the results:
@@ -38,6 +39,7 @@ unimportant.
 Each page rendered 3000 components, with 1000 unique (+/-) rules.
 
 ## Development build
+
 Tests were conducted over a production build and would look incredibly worse for
 CSS-in-JS if using a development build.
 
@@ -48,6 +50,6 @@ do with CSS-in-JS.
 **Development build numbers:**
 
 |                            | CSS Modules | Compiled CSS | Styled components |
-| -------------------------- | ----------- | ------------ |-------------------|
+| -------------------------- | ----------- | ------------ | ----------------- |
 | **Blocking time**          | 1670ms      | 5170ms       | 11390ms           |
 | **Relative blocking time** | 1x          | 3x           | 6.8x              |
