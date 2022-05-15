@@ -23,20 +23,18 @@ for CSS in JavaScript that has no overhead.
 1000 rules is not unthinkable, neither is a DOM tree size of 3000
 elements for a large app.
 
-Other than this, results speak for themselves, CSS in JS performs 2-4x worse on
-production builds and up to 7x worse during development.
+CSS in JS performs 2-4x worse on this micro-benchmark for production builds and
+up to 7x worse during development.
 
-Ultimately everything that can be done with these EDSLs can be done with regular
-CSS and at most some extra preprocessors (SCSS for example, modules, postcss) and
-CSS variables.
+Other than performance, development experience with CSS-in-JS may suffer because:
 
-Development experience with them is considerably worse because:
 * It's harder to support hot-reloading of JavaScript than CSS, thus some large
-  apps could have instant hot-reloading of styles, but don't due to their usage
+  apps that could have instant hot-reloading of styles won't due to their usage
   of CSS-in-JS
 * They are really slow in development builds (3-7x as shown in "development
   build" runs)
 * Bad editor support
+* ...
 
 ## Overview
 
