@@ -67,7 +67,7 @@ function generateRandomRule(): StyleRule {
   };
 }
 
-function generateStyleModel(size: number = 1000): StyleModel {
+function generateStyleModel(size: number = 10000): StyleModel {
   const rules = [];
 
   for (let i = 0; i < size; i++) {

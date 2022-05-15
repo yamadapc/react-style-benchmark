@@ -33,6 +33,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>{mode}</h1>
       <button onClick={forceRender} data-test-id="force-render">
         Force render
       </button>
