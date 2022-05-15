@@ -17,6 +17,12 @@ care about.
 difference between the solutions is so huge the results are still indicative of
 the issue I'm trying to surface.
 
+Additionally, I used a very high CPU slowdown factor (8x), on my computer, for
+this page, all the solutions take well under 100ms to render.
+
+I couldn't set-up a codegen set-up with 10k rules because possibly one of the
+CSS-in-JS builds considerably slows down with the number of rules.
+
 ## Why?
 In my experience, CSS-in-JS is several times slower than very old standard
 styling solutions at scale. A solution with good performance **can** be built,
