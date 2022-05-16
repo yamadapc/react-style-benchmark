@@ -153,6 +153,41 @@ import { styled } from '@compiled/react';
   fs.writeFileSync("./src/compiled.tsx", fileContents);
 }
 
+function generateCompiledCSSNoComponents(styleModel: StyleModel) {
+  const result = `
+// @ts-nocheck
+
+import { css } from '@compiled/react';
+  `;
+
+  const jsxCalls = styleModel.rules
+    .flatMap((rule) => {
+      const attributes: any = {};
+      rule.attributes.forEach(({ key, value }) => {
+        attributes[key] = value;
+      });
+      return [
+        `<div css={${JSON.stringify(attributes)}} />`,
+        `<div css={${JSON.stringify(attributes)}} />`,
+        `<div css={${JSON.stringify(attributes)}} />`,
+      ];
+    })
+    .join("\n");
+
+  const usage = `
+export const MainComponent = () => {
+    return (
+        <div className="MainComponent">
+            ${jsxCalls}
+        </div>
+    );
+};
+  `;
+
+  const fileContents = result + usage;
+  fs.writeFileSync("./src/compiled-no-components.tsx", fileContents);
+}
+
 function generateCSSModule(styleModel: StyleModel) {
   const cssModuleStr = styleModel.rules
     .map((rule) => {
@@ -199,6 +234,7 @@ function main() {
 
   generateCSSModule(styleModel);
   generateCompiledCSS(styleModel);
+  generateCompiledCSSNoComponents(styleModel);
 }
 
 main();

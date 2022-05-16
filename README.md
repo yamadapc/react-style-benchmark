@@ -1,6 +1,7 @@
 # react-style-benchmark
 
 ## What is this?
+
 This repository sets-up a couple of CSS-in-JS solutions and compiled CSS to
 run performance tests against them.
 
@@ -24,6 +25,7 @@ I couldn't set-up a codegen set-up with 10k rules because possibly one of the
 CSS-in-JS builds considerably slows down with the number of rules.
 
 ## Why?
+
 In my experience, CSS-in-JS is several times slower than very old standard
 styling solutions at scale. A solution with good performance **can** be built,
 but would require a LOT of engineering effort. Standard editing, linting,
@@ -38,13 +40,13 @@ up to 7x worse during development.
 
 Other than performance, development experience with CSS-in-JS may suffer because:
 
-* It's harder to support hot-reloading of JavaScript than CSS, thus some large
+- It's harder to support hot-reloading of JavaScript than CSS, thus some large
   apps that could have instant hot-reloading of styles won't due to their usage
   of CSS-in-JS
-* They are really slow in development builds (3-7x as shown in "development
+- They are really slow in development builds (3-7x as shown in "development
   build" runs)
-* Bad editor support
-* ...
+- Bad editor support
+- ...
 
 ## Overview
 
@@ -52,11 +54,10 @@ I ran this on a Macbook Pro M1 Pro with 8x CPU slowdown.
 
 These are the results:
 
-|                            | CSS Modules | Compiled CSS | Styled components |
-| -------------------------- | ----------- | ------------ | ----------------- |
-| **Blocking time**          | 230ms       | 330ms        | 520ms             |
-| **Relative blocking time** | 1x          | 1.4x         | 2.2x              |
-| **TTI**                    | 2.8s        | 2.9s         | 3.1s              |
+|                            | CSS Modules | Compiled CSS | Styled components | Compiled CSS with `css=` |
+| -------------------------- | ----------- | ------------ | ----------------- | ------------------------ |
+| **Blocking time**          | 160ms       | 260ms        | 530ms             | 310ms                    |
+| **Relative blocking time** | 1x          | 1.6x         | 3.3x              | 1.9x                     |
 
 Compiled CSS is configured to use compile time extraction through its webpack
 loader, which should be stripping some runtime cost. Still, there is runtime
@@ -90,6 +91,6 @@ do with CSS-in-JS.
 
 ## Links to the app
 
-* [Styled Components URL](https://react-style-benchmark.surge.sh#styled)
-* [Compiled CSS URL](https://react-style-benchmark.surge.sh#compiled)
-* [CSS Modules URL](https://react-style-benchmark.surge.sh#modules)
+- [Styled Components URL](https://react-style-benchmark.surge.sh#styled)
+- [Compiled CSS URL](https://react-style-benchmark.surge.sh#compiled)
+- [CSS Modules URL](https://react-style-benchmark.surge.sh#modules)

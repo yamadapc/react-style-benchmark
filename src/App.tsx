@@ -4,6 +4,7 @@ import "./App.css";
 import { MainComponent as StyledMainComponent } from "./styled";
 import { MainComponent as CSSModulesMainComponent } from "./css-modules";
 import { MainComponent as CompiledCSSMainComponent } from "./compiled";
+import { MainComponent as CompiledCSSNoComponentsMainComponent } from "./compiled-no-components";
 
 const h = document.location.hash;
 const initialMode = h.replace("#", "") || "styled";
@@ -41,6 +42,7 @@ function App() {
       {mode === "styled" && <StyledMainComponent />}
       {mode === "modules" && <CSSModulesMainComponent />}
       {mode === "compiled" && <CompiledCSSMainComponent />}
+      {mode === "compiled-no-components" && <CompiledCSSNoComponentsMainComponent />}
     </div>
   );
 }
