@@ -25,6 +25,7 @@ const ForkTsCheckerWebpackPlugin =
     ? require("react-dev-utils/ForkTsCheckerWarningWebpackPlugin")
     : require("react-dev-utils/ForkTsCheckerWebpackPlugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const { CompiledExtractPlugin } = require('@compiled/webpack-loader');
 
 const createEnvironmentHash = require("./webpack/persistentCache/createEnvironmentHash");
 
@@ -439,6 +440,9 @@ module.exports = function (webpackEnv) {
                 },
                 {
                   loader: "@compiled/webpack-loader",
+                  options: {
+                    extract: true,
+                  },
                 },
               ],
             },
@@ -755,6 +759,7 @@ module.exports = function (webpackEnv) {
             },
           },
         }),
+      new CompiledExtractPlugin(),
     ].filter(Boolean),
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
