@@ -94,3 +94,4 @@ do with CSS-in-JS.
 - [Styled Components URL](https://react-style-benchmark.surge.sh#styled)
 - [Compiled CSS URL](https://react-style-benchmark.surge.sh#compiled)
 - [CSS Modules URL](https://react-style-benchmark.surge.sh#modules)
+- [Compiled CSS with `css=`](https://react-style-benchmark.surge.sh#compiled-no-components)
