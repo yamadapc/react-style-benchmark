@@ -54,13 +54,13 @@ These are the results:
 
 |                            | CSS Modules | Compiled CSS | Styled components |
 | -------------------------- | ----------- | ------------ | ----------------- |
-| **Blocking time**          | 120ms       | 280ms        | 420ms             |
-| **Relative blocking time** | 1x          | 2.3x         | 3.5x              |
-| **TTI**                    | 2.7s        | 2.9s         | 3.0s              |
+| **Blocking time**          | 230ms       | 330ms        | 520ms             |
+| **Relative blocking time** | 1x          | 1.4x         | 2.2x              |
+| **TTI**                    | 2.8s        | 2.9s         | 3.1s              |
 
 Compiled CSS is configured to use compile time extraction through its webpack
-loader, which should be stripping some runtime cost. Still, there is
-runtime work, which explains the difference in results.
+loader, which should be stripping some runtime cost. Still, there is runtime
+work, which explains the difference in results.
 
 The main metric we are interested in is **blocking time**, we want to measure
 the overhead of this styling solution.
